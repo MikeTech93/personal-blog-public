@@ -7,6 +7,13 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
+  environments: {
+    ssr: {
+      resolve: {
+        noExternal: true,
+      },
+    },
+  },
   plugins: [
     tanstackStart({
       tsr: {
