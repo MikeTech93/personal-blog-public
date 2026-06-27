@@ -3,10 +3,19 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   resolve: {
     tsconfigPaths: true,
   },
+  ...(command === 'build' && {
+    environments: {
+      ssr: {
+        resolve: {
+          noExternal: true,
+        },
+      },
+    },
+  }),
   plugins: [
     tanstackStart({
       tsr: {
@@ -17,4 +26,4 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-})
+}))
