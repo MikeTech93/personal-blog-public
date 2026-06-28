@@ -3,6 +3,17 @@ import { ArrowLeft, Clock, Calendar, Tag } from 'lucide-react'
 import { BLOG_POSTS, formatDate } from '@/data/blog'
 import type { BlogPost } from '@/data/blog'
 import { marked } from 'marked'
+import hljs from 'highlight.js'
+
+marked.use({
+  renderer: {
+    code({ text, lang }: { text: string; lang?: string }) {
+      const language = lang && hljs.getLanguage(lang) ? lang : 'plaintext'
+      const highlighted = hljs.highlight(text, { language }).value
+      return `<pre><code class="hljs language-${language}">${highlighted}</code></pre>`
+    },
+  },
+})
 
 const CATEGORY_COLORS: Record<string, string> = {
   Azure: 'bg-blue-950/60 text-blue-400 border-blue-500/30',
