@@ -3,8 +3,10 @@
 import { useState } from 'react'
 import { SiteLayout } from '@/components/layout/SiteLayout'
 import { Clock, Tag, ArrowRight, BookOpen } from 'lucide-react'
-import { BLOG_POSTS, CATEGORIES, formatDate } from '@/data/blog'
-import type { BlogPost, Category } from '@/data/blog'
+import { BLOG_POSTS, formatDate } from '@/data/blog'
+import type { BlogPost } from '@/data/blog'
+
+const ALL_TAGS = ['All', ...Array.from(new Set(BLOG_POSTS.flatMap((p) => p.tags))).sort()]
 
 // ─── Category colour map ───────────────────────────────────────────────────────
 
@@ -117,28 +119,28 @@ function PostCard({ post }: { post: BlogPost }) {
 
 // ─── Filters ───────────────────────────────────────────────────────────────────
 
-function CategoryFilter({
+function TagFilter({
   active,
   onChange,
 }: {
-  active: Category
-  onChange: (c: Category) => void
+  active: string
+  onChange: (t: string) => void
 }) {
   return (
-    <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
-      {CATEGORIES.map((cat) => (
+    <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by tag">
+      {ALL_TAGS.map((tag) => (
         <button
-          key={cat}
+          key={tag}
           type="button"
-          onClick={() => onChange(cat)}
+          onClick={() => onChange(tag)}
           className={`px-3 py-1.5 rounded-lg text-sm font-medium border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
-            active === cat
+            active === tag
               ? 'bg-blue-600 border-blue-500 text-white'
               : 'bg-slate-800/60 border-slate-700/60 text-slate-400 hover:text-slate-200 hover:border-slate-600'
           }`}
-          aria-pressed={active === cat}
+          aria-pressed={active === tag}
         >
-          {cat}
+          {tag}
         </button>
       ))}
     </div>
@@ -152,11 +154,14 @@ interface BlogPageProps {
 }
 
 export function BlogPage({ currentPath = '/blog' }: BlogPageProps) {
-  const [activeCategory, setActiveCategory] = useState<Category>('All')
+  const [activeTag, setActiveTag] = useState('All')
 
-  const featured = BLOG_POSTS.find((p) => p.featured)
-  const rest = BLOG_POSTS.filter((p) => !p.featured)
-  const filtered = activeCategory === 'All' ? rest : rest.filter((p) => p.category === activeCategory)
+  const isFiltered = activeTag !== 'All'
+  const featured = !isFiltered ? BLOG_POSTS.find((p) => p.featured) : undefined
+  const postsToFilter = isFiltered ? BLOG_POSTS : BLOG_POSTS.filter((p) => !p.featured)
+  const filtered = isFiltered
+    ? postsToFilter.filter((p) => p.tags.includes(activeTag))
+    : postsToFilter
 
   return (
     <SiteLayout currentPath={currentPath}>
@@ -189,7 +194,7 @@ export function BlogPage({ currentPath = '/blog' }: BlogPageProps) {
             <div className="hidden lg:grid grid-cols-2 gap-4">
               {[
                 { value: `${BLOG_POSTS.length}`, label: 'Articles Published', icon: BookOpen },
-                { value: CATEGORIES.length - 1 + '', label: 'Topics Covered', icon: Tag },
+                { value: ALL_TAGS.length - 1 + '', label: 'Topics Covered', icon: Tag },
                 { value: '1K+', label: 'LinkedIn Followers', icon: BookOpen },
                 { value: '15+', label: 'Years Experience', icon: Tag },
               ].map(({ value, label, icon: Icon }) => (
@@ -215,10 +220,10 @@ export function BlogPage({ currentPath = '/blog' }: BlogPageProps) {
         <div>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <h2 className="text-lg font-semibold text-slate-300">
-              {activeCategory === 'All' ? 'All Articles' : activeCategory}
+              {activeTag === 'All' ? 'All Articles' : activeTag}
               <span className="ml-2 text-sm font-normal text-slate-600">({filtered.length})</span>
             </h2>
-            <CategoryFilter active={activeCategory} onChange={setActiveCategory} />
+            <TagFilter active={activeTag} onChange={setActiveTag} />
           </div>
 
           {filtered.length > 0 ? (
