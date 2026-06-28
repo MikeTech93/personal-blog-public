@@ -1,5 +1,3 @@
-import matter from 'gray-matter'
-
 export interface BlogPost {
   slug: string
   title: string
@@ -12,6 +10,34 @@ export interface BlogPost {
   content: string
 }
 
+function parseFrontmatter(raw: string): { data: Record<string, unknown>; content: string } {
+  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/)
+  if (!match) return { data: {}, content: raw }
+  const frontmatter = match[1]
+  const content = raw.slice(match[0].length)
+  const data: Record<string, unknown> = {}
+  for (const line of frontmatter.split('\n')) {
+    const colonIdx = line.indexOf(':')
+    if (colonIdx === -1) continue
+    const key = line.slice(0, colonIdx).trim()
+    const val = line.slice(colonIdx + 1).trim()
+    if (val.startsWith('[')) {
+      data[key] = val
+        .slice(1, -1)
+        .split(',')
+        .map(s => s.trim().replace(/^["']|["']$/g, ''))
+        .filter(Boolean)
+    } else if (val === 'true') {
+      data[key] = true
+    } else if (val === 'false') {
+      data[key] = false
+    } else {
+      data[key] = val.replace(/^["']|["']$/g, '')
+    }
+  }
+  return { data, content }
+}
+
 const blogFiles = import.meta.glob('/content/blog/*.md', {
   query: '?raw',
   import: 'default',
@@ -22,7 +48,7 @@ function parseBlogFiles(files: Record<string, string>): BlogPost[] {
   return Object.entries(files)
     .map(([path, raw]) => {
       const slug = path.split('/').pop()!.replace('.md', '')
-      const { data, content } = matter(raw)
+      const { data, content } = parseFrontmatter(raw)
       return {
         slug,
         title: String(data.title ?? ''),
