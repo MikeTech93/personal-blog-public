@@ -4,6 +4,7 @@ import {
   Outlet,
   Scripts,
 } from '@tanstack/react-router'
+import { Analytics } from '@vercel/analytics/react'
 import type { ReactNode } from 'react'
 import appCss from '../globals.css?url'
 
@@ -63,6 +64,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       </head>
       <body className="bg-[#030712] text-slate-100 antialiased">
         {children}
+        <Analytics />
         <Scripts />
       </body>
     </html>
