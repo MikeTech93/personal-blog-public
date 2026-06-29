@@ -5,7 +5,7 @@ import { SITE_URL } from '@/config/site'
 const PAGE_URL = `${SITE_URL}/about`
 const PAGE_TITLE = 'About — MikeTech93'
 const PAGE_DESCRIPTION =
-  'Senior DevOps & Platform Engineer with 9+ years building cloud-native infrastructure on Azure and AWS.'
+  'Senior DevOps & Platform Engineer with 15+ years building cloud-native infrastructure on Azure and AWS.'
 
 export const Route = createFileRoute('/about')({
   component: AboutPageRoute,
