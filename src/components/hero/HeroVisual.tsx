@@ -71,41 +71,51 @@ export function HeroVisual({ terminalLines, avatarSrc, name }: HeroVisualProps) 
         <div className="w-96 h-96 rounded-full bg-blue-700/8 blur-3xl" />
       </div>
 
-      {/* Avatar card — centered in the column */}
-      <div className="relative z-10 w-52 h-[300px] lg:w-60 lg:h-[330px] xl:w-64 xl:h-[350px] rounded-2xl overflow-hidden border border-slate-700/40 shadow-2xl shadow-blue-950/60">
-        {showPhoto ? (
-          <img
-            src={avatarSrc}
-            alt={`${name} — profile photo`}
-            className="w-full h-full object-cover object-top"
-            onError={() => setImgFailed(true)}
-          />
-        ) : (
-          <div className="w-full h-full bg-black flex items-center justify-center p-6">
+      {/* Inner group — fixed width keeps card + terminal together on the right,
+           card is left-anchored so it always peeks out from behind the terminal */}
+      <div className="relative w-[340px] h-[400px] lg:w-[390px] lg:h-[440px] xl:w-[430px] xl:h-[460px]">
+
+        {/* Python code card — left-anchored, always visible to the left of the terminal */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-44 h-[270px] lg:w-48 lg:h-[300px] xl:w-52 xl:h-[320px] rounded-2xl overflow-hidden border border-slate-700/40 shadow-2xl shadow-blue-950/60">
+          {showPhoto ? (
             <img
-              src="/favicon.png"
-              alt="MikeTech93 logo"
-              className="w-full h-full object-contain"
-              loading="lazy"
+              src={avatarSrc}
+              alt={`${name} — profile photo`}
+              className="w-full h-full object-cover object-top"
+              onError={() => setImgFailed(true)}
             />
-          </div>
-        )}
-      </div>
+          ) : (
+            <div className="w-full h-full bg-[#0d1117] flex flex-col justify-start p-3 font-mono text-[10px] leading-relaxed overflow-hidden">
+              <div className="text-slate-500 mb-2 text-[9px]">deploy.py</div>
+              <div><span className="text-purple-400">import</span> <span className="text-blue-300">boto3</span></div>
+              <div><span className="text-purple-400">import</span> <span className="text-blue-300">json</span></div>
+              <div className="mt-2"><span className="text-slate-500"># Deploy to EKS</span></div>
+              <div><span className="text-yellow-300">def</span> <span className="text-blue-400">deploy</span><span className="text-slate-300">(env):</span></div>
+              <div className="pl-3"><span className="text-blue-300">eks</span> <span className="text-slate-300">= boto3.</span></div>
+              <div className="pl-3"><span className="text-slate-400">  client(</span></div>
+              <div className="pl-5"><span className="text-green-400">'eks'</span><span className="text-slate-400">,</span></div>
+              <div className="pl-5"><span className="text-slate-300">region</span><span className="text-slate-400">=</span></div>
+              <div className="pl-5"><span className="text-green-400">'eu-west-2'</span></div>
+              <div className="pl-3"><span className="text-slate-400">)</span></div>
+              <div className="mt-1 pl-3"><span className="text-slate-300">return</span> <span className="text-blue-300">eks</span><span className="text-slate-300">.</span></div>
+              <div className="pl-3"><span className="text-yellow-300">update_kubeconfig</span><span className="text-slate-400">(</span></div>
+              <div className="pl-5"><span className="text-slate-300">name</span><span className="text-slate-400">=</span><span className="text-blue-300">env</span></div>
+              <div className="pl-3"><span className="text-slate-400">)</span></div>
+              <div className="mt-2"><span className="text-slate-500 animate-pulse">█</span></div>
+            </div>
+          )}
+        </div>
 
-      {/* Terminal window — overlapping top-right */}
-      <div
-        className="absolute top-2 right-0 z-20 lg:-right-2 xl:-right-6"
-        aria-label="Terraform plan terminal output"
-      >
-        <TerminalWindow lines={terminalLines} />
-      </div>
+        {/* Terminal window — right-anchored, overlaps the card */}
+        <div className="absolute top-2 right-0 z-20" aria-label="Terraform plan terminal output">
+          <TerminalWindow lines={terminalLines} />
+        </div>
 
-      {/* Pipeline diagram — overlapping bottom-right */}
-      <div
-        className="absolute bottom-2 right-0 z-20 lg:-right-2 xl:-right-6"
-        aria-label="Deploy pipeline: GitHub / Azure DevOps, Terraform, Azure AKS, AWS EKS"
-      >
-        <ArchitectureDiagram />
+        {/* Pipeline diagram — bottom-right, overlaps the card */}
+        <div className="absolute bottom-2 right-0 z-20" aria-label="Deploy pipeline: GitHub / Azure DevOps, Terraform, Azure AKS, AWS EKS">
+          <ArchitectureDiagram />
+        </div>
+
       </div>
     </div>
   )
