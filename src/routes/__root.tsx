@@ -36,6 +36,7 @@ export const Route = createRootRoute({
       { title: 'Mike Etherington — DevOps & Platform Engineer' },
     ],
     links: [
+      { rel: 'icon', href: '/favicon.png', type: 'image/png' },
       { rel: 'stylesheet', href: appCss },
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       {

@@ -35,10 +35,8 @@ export function HeroNav({
             className="flex items-center gap-3 flex-shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg p-1 -m-1"
             aria-label={`${siteName} — home`}
           >
-            <div className="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500 transition-colors">
-              <span className="text-sm font-extrabold text-white tracking-tight select-none">
-                {logoInitials}
-              </span>
+            <div className="w-9 h-9 rounded-lg overflow-hidden flex-shrink-0">
+              <img src="/images/logos/square-logo.png" alt="MikeTech93 logo" className="w-full h-full object-cover" />
             </div>
             <div className="hidden sm:block leading-tight">
               <div className="text-sm font-bold text-slate-100 leading-none">{siteName}</div>

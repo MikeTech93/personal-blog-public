@@ -137,6 +137,213 @@ export function GitHubIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
+export function DockerIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 0 0 .186-.186V3.574a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 0 0 .186-.186V6.29a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.887c0 .102.082.186.185.186m-2.93 0h2.12a.186.186 0 0 0 .184-.186V6.29a.185.185 0 0 0-.185-.185H8.1a.185.185 0 0 0-.185.185v1.887c0 .102.083.186.185.186m-2.964 0h2.119a.186.186 0 0 0 .185-.186V6.29a.185.185 0 0 0-.185-.185H5.136a.186.186 0 0 0-.186.185v1.887c0 .102.084.186.186.186m5.893 2.715h2.118a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 0 0 .185-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.186.186 0 0 0-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 0 0-.75.748 11.376 11.376 0 0 0 .692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 0 0 3.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z" fill="#2496ED" />
+    </svg>
+  )
+}
+
+export function KubernetesIcon(props: SVGProps<SVGSVGElement>) {
+  const spokes = Array.from({ length: 7 }, (_, i) => {
+    const rad = ((i * 360) / 7) * (Math.PI / 180)
+    return {
+      x1: (12 + 4 * Math.cos(rad)).toFixed(2),
+      y1: (12 + 4 * Math.sin(rad)).toFixed(2),
+      x2: (12 + 9.5 * Math.cos(rad)).toFixed(2),
+      y2: (12 + 9.5 * Math.sin(rad)).toFixed(2),
+    }
+  })
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <circle cx="12" cy="12" r="10.5" stroke="#326CE5" strokeWidth="1.5" />
+      {spokes.map((s, i) => (
+        <line key={i} x1={s.x1} y1={s.y1} x2={s.x2} y2={s.y2} stroke="#326CE5" strokeWidth="1.8" strokeLinecap="round" />
+      ))}
+      <circle cx="12" cy="12" r="2.5" fill="#326CE5" />
+    </svg>
+  )
+}
+
+export function PythonIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.89S0 5.789 0 11.969c0 6.18 3.403 5.959 3.403 5.959h2.027v-2.867s-.109-3.402 3.35-3.402h5.769s3.24.052 3.24-3.13V3.13S18.28 0 11.914 0zm-3.2 1.812a1.04 1.04 0 1 1 0 2.08 1.04 1.04 0 0 1 0-2.08z" fill="#3776AB" />
+      <path d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752H12v-.826h8.131S24 18.211 24 12.031c0-6.18-3.403-5.959-3.403-5.959h-2.027v2.867s.109 3.402-3.35 3.402H9.451s-3.24-.052-3.24 3.13v5.399S5.72 24 12.086 24zm3.2-1.812a1.04 1.04 0 1 1 0-2.08 1.04 1.04 0 0 1 0 2.08z" fill="#FFD43B" />
+    </svg>
+  )
+}
+
+export function JavaScriptIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <rect width="24" height="24" fill="#F7DF1E" />
+      <path d="M22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z" fill="#323330" />
+    </svg>
+  )
+}
+
+export function CSharpIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path d="M22.394 6a2.88 2.88 0 0 0-.29-.488 2.93 2.93 0 0 0-.41-.41L13.32.29A2.93 2.93 0 0 0 12 0a2.93 2.93 0 0 0-1.32.29L2.306 5.102a2.93 2.93 0 0 0-1.32 2.546v9.704a2.926 2.926 0 0 0 .29.874 2.929 2.929 0 0 0 1.03 1.083l8.374 4.812a2.93 2.93 0 0 0 2.64 0l8.374-4.812a2.929 2.929 0 0 0 1.32-2.543V7.648A2.93 2.93 0 0 0 22.394 6zm-7.418 9.748a4.784 4.784 0 0 1-2.313.601 4.836 4.836 0 0 1-2.439-.63 4.639 4.639 0 0 1-1.741-1.74 4.879 4.879 0 0 1 0-4.878 4.636 4.636 0 0 1 1.74-1.74A4.836 4.836 0 0 1 12.663 6.7c.832 0 1.641.214 2.353.62l-1.169 2.025a2.637 2.637 0 0 0-1.184-.287 2.571 2.571 0 0 0-1.312.343 2.463 2.463 0 0 0-.923.943 2.658 2.658 0 0 0 0 2.604 2.46 2.46 0 0 0 .923.942c.397.228.849.347 1.312.343a2.642 2.642 0 0 0 1.194-.286l1.169 2.025-.004-.003zm4.282-4.457h-.75v.75h-.75v-.75H17v-.75h.758V9.79h.75v.75h.75v.751zm2.45 0h-.75v.75h-.75v-.75h-.75v-.75h.75V9.79h.75v.75h.75v.751z" fill="#512BD4" />
+    </svg>
+  )
+}
+
+export function PowerShellIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <rect width="24" height="24" rx="3" fill="#012456" />
+      <path d="M5 9l5 3-5 3" stroke="#5391FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 15h7" stroke="#5391FE" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+export function BashIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <rect width="24" height="24" rx="3" fill="#1D1D1D" />
+      <path d="M5 7.5l4 4-4 4" stroke="#4EAA25" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 15.5h7" stroke="#4EAA25" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+export function SnowflakeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      {[0, 60, 120].map((angle) => (
+        <g key={angle} transform={`rotate(${angle} 12 12)`}>
+          <line x1="12" y1="2" x2="12" y2="22" stroke="#29B5E8" strokeWidth="2" strokeLinecap="round" />
+          <line x1="9" y1="5.5" x2="12" y2="3" stroke="#29B5E8" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="15" y1="5.5" x2="12" y2="3" stroke="#29B5E8" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="9" y1="18.5" x2="12" y2="21" stroke="#29B5E8" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="15" y1="18.5" x2="12" y2="21" stroke="#29B5E8" strokeWidth="1.5" strokeLinecap="round" />
+        </g>
+      ))}
+      <circle cx="12" cy="12" r="1.5" fill="#29B5E8" />
+    </svg>
+  )
+}
+
+export function MySQLIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      {/* Dolphin body arc */}
+      <path d="M5 15C5 10.029 9.029 6 14 6c2.5 0 4.5 1 5.5 2.5" stroke="#4479A1" strokeWidth="1.8" strokeLinecap="round" />
+      {/* Tail */}
+      <path d="M5 15C5 17 6 19 7 19c0 0-2.5 1.5-4 2.5 2.5-.5 5-1.5 6-1.5 1 0 1.5 1.5 1.5 1.5" stroke="#4479A1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Dorsal fin */}
+      <path d="M15.5 6.5C16 4 18.5 2.5 20 3.5" stroke="#4479A1" strokeWidth="1.5" strokeLinecap="round" />
+      {/* Belly highlight */}
+      <path d="M7 15.5C8 13 11 11 14 11" stroke="#4479A1" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+      {/* Eye */}
+      <circle cx="16" cy="9" r="1" fill="#4479A1" />
+    </svg>
+  )
+}
+
+export function LinuxIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      {/* Body */}
+      <ellipse cx="12" cy="16.5" rx="6" ry="5.5" fill="#1a1a1a" />
+      {/* White belly */}
+      <ellipse cx="12" cy="17.5" rx="3.8" ry="4" fill="#f0f0f0" />
+      {/* Head */}
+      <circle cx="12" cy="8" r="4.5" fill="#1a1a1a" />
+      {/* Eyes */}
+      <circle cx="10.5" cy="7.2" r="1.1" fill="white" />
+      <circle cx="13.5" cy="7.2" r="1.1" fill="white" />
+      <circle cx="10.7" cy="7.3" r="0.55" fill="#222" />
+      <circle cx="13.7" cy="7.3" r="0.55" fill="#222" />
+      {/* Beak */}
+      <path d="M10.5 10Q12 11.5 13.5 10" fill="#F5A623" />
+      {/* Feet */}
+      <path d="M8.5 21.5H7l-1 1.5" stroke="#F5A623" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M15.5 21.5H17l1 1.5" stroke="#F5A623" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function WindowsIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" fill="#0078D4" />
+    </svg>
+  )
+}
+
+export function AzureDevOpsIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      {/* Top arc */}
+      <path d="M4.5 12C4.5 7.806 7.806 4.5 12 4.5s7.5 3.306 7.5 7.5" stroke="#0078D4" strokeWidth="2" strokeLinecap="round" />
+      {/* Bottom arc */}
+      <path d="M19.5 12c0 4.194-3.306 7.5-7.5 7.5S4.5 16.194 4.5 12" stroke="#0078D4" strokeWidth="2" strokeLinecap="round" />
+      {/* Arrowhead top-right */}
+      <path d="M17 8l2.5 4-4 .5" stroke="#0078D4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Arrowhead bottom-left */}
+      <path d="M7 16l-2.5-4 4-.5" stroke="#0078D4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function ElasticsearchIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <circle cx="12" cy="12" r="11" fill="#343741" />
+      <rect x="5.5" y="7" width="13" height="2.5" rx="1.25" fill="#FED10A" />
+      <rect x="5.5" y="10.75" width="10.5" height="2.5" rx="1.25" fill="#FED10A" />
+      <rect x="5.5" y="14.5" width="13" height="2.5" rx="1.25" fill="#FED10A" />
+    </svg>
+  )
+}
+
+export function OpenSearchIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <circle cx="10" cy="10" r="7" stroke="#003B5C" strokeWidth="2" />
+      <path d="M15.5 15.5L21 21" stroke="#003B5C" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M7 10a3 3 0 0 1 3-3" stroke="#FF6B35" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+export function AdobeConnectIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path d="M13.966 22.624l-1.69-4.281H8.122l3.892-9.144 5.662 13.425zM8.884 1.376H0l3.892 9.144zm14.116 0h-8.884l-5.772 13.68h3.116l1.352-3.205h5.844l1.352 3.205H24z" fill="#FF0000" />
+    </svg>
+  )
+}
+
+export function SqlIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      {/* Cylinder body */}
+      <path d="M3 8v8c0 2.21 4.03 4 9 4s9-1.79 9-4V8" fill="#4479A1" opacity="0.6" />
+      {/* Mid ring line */}
+      <path d="M3 13c0 2.21 4.03 4 9 4s9-1.79 9-4" stroke="#6ba5d4" strokeWidth="1" />
+      {/* Top ellipse */}
+      <ellipse cx="12" cy="8" rx="9" ry="3.5" fill="#4479A1" />
+    </svg>
+  )
+}
+
+export function UnixIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <rect width="24" height="24" rx="3" fill="#1D1D1D" />
+      <path d="M4.5 7.5l3 3-3 3" stroke="#aaa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M10 13.5h5" stroke="#aaa" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  )
+}
+
 export function UserCircleIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
