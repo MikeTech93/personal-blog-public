@@ -34,10 +34,10 @@ export function PostContent({ post }: PostContentProps) {
 
       <div className="flex flex-wrap items-center gap-3 mb-6">
         <TagPill label={post.category} />
-        <span className="flex items-center gap-1.5 text-sm text-slate-500">
+        <time dateTime={post.date} className="flex items-center gap-1.5 text-sm text-slate-500">
           <Calendar className="w-3.5 h-3.5" strokeWidth={2} />
           {formatDate(post.date)}
-        </span>
+        </time>
         <span className="flex items-center gap-1.5 text-sm text-slate-500">
           <Clock className="w-3.5 h-3.5" strokeWidth={2} />
           {post.readTime}

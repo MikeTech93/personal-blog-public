@@ -86,6 +86,7 @@ export function HeroVisual({ terminalLines, avatarSrc, name }: HeroVisualProps) 
               src="/images/logos/square-logo.png"
               alt="MikeTech93 logo"
               className="w-full h-full object-contain"
+              loading="lazy"
             />
           </div>
         )}

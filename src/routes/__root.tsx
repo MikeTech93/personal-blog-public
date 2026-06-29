@@ -8,7 +8,7 @@ import {
 import { Analytics } from '@vercel/analytics/react'
 import type { ReactNode } from 'react'
 import appCss from '../globals.css?url'
-import { SITE_URL, SITE_DESCRIPTION, SITE_AUTHOR } from '@/config/site'
+import { SITE_AUTHOR, SITE_NAME } from '@/config/site'
 
 function NotFound() {
   return (
@@ -30,26 +30,14 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        name: 'description',
-        content:
-          'DevOps & Platform Engineer sharing practical lessons on cloud, automation, Kubernetes, and modern infrastructure.',
-      },
-      { title: 'Mike Etherington — DevOps & Platform Engineer' },
-      { property: 'og:site_name', content: 'MikeTech93' },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:title', content: 'Mike Etherington — DevOps & Platform Engineer' },
-      { property: 'og:description', content: SITE_DESCRIPTION },
-      { property: 'og:url', content: SITE_URL },
       { name: 'author', content: SITE_AUTHOR },
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:title', content: 'Mike Etherington — DevOps & Platform Engineer' },
-      { name: 'twitter:description', content: SITE_DESCRIPTION },
+      { property: 'og:site_name', content: SITE_NAME },
     ],
     links: [
       { rel: 'icon', href: '/favicon.png', type: 'image/png' },
       { rel: 'stylesheet', href: appCss },
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&display=swap',
