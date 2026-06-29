@@ -1,0 +1,5 @@
+export { AboutPage } from './AboutPage'
+export { AboutHero } from './AboutHero'
+export { AboutSkills } from './AboutSkills'
+export { AboutExperience } from './AboutExperience'
+export { AboutCertifications } from './AboutCertifications'
