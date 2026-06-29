@@ -5,13 +5,9 @@ import { AboutExperience } from './AboutExperience'
 import { AboutCertifications } from './AboutCertifications'
 
 
-interface AboutPageProps {
-  currentPath?: string
-}
-
-export function AboutPage({ currentPath = '/about' }: AboutPageProps) {
+export function AboutPage() {
   return (
-    <SiteLayout currentPath={currentPath}>
+    <SiteLayout>
       <AboutHero />
       <AboutSkills />
       <AboutExperience />

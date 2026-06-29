@@ -10,11 +10,7 @@ import { TagFilter } from './TagFilter'
 
 const ALL_TAGS = ['All', ...Array.from(new Set(BLOG_POSTS.flatMap((p) => p.tags))).sort()]
 
-interface BlogPageProps {
-  currentPath?: string
-}
-
-export function BlogPage({ currentPath = '/blog' }: BlogPageProps) {
+export function BlogPage() {
   const [activeTag, setActiveTag] = useState('All')
 
   const isFiltered = activeTag !== 'All'
@@ -25,7 +21,7 @@ export function BlogPage({ currentPath = '/blog' }: BlogPageProps) {
     : postsToFilter
 
   return (
-    <SiteLayout currentPath={currentPath}>
+    <SiteLayout>
       <BlogHero postCount={BLOG_POSTS.length} topicCount={ALL_TAGS.length - 1} />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 space-y-12">

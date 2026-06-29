@@ -5,10 +5,9 @@ import type { ReactNode } from 'react'
 
 interface SiteLayoutProps {
   children: ReactNode
-  currentPath?: string
 }
 
-export function SiteLayout({ children, currentPath = '/' }: SiteLayoutProps) {
+export function SiteLayout({ children }: SiteLayoutProps) {
   return (
     <div className="min-h-screen bg-[#030712] flex flex-col">
       <HeroNav
@@ -17,7 +16,6 @@ export function SiteLayout({ children, currentPath = '/' }: SiteLayoutProps) {
         siteSubtitle={SITE_SUBTITLE}
         navLinks={NAV_LINKS}
         linkedInUrl={LINKEDIN_URL}
-        currentPath={currentPath}
       />
       <main className="flex-1">{children}</main>
       <footer className="border-t border-slate-800 py-6">

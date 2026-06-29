@@ -6,12 +6,11 @@ import type { HeroData } from '@/types/hero'
 
 interface HeroSectionProps {
   data: HeroData
-  currentPath?: string
 }
 
-export function HeroSection({ data, currentPath = '/' }: HeroSectionProps) {
+export function HeroSection({ data }: HeroSectionProps) {
   return (
-    <SiteLayout currentPath={currentPath}>
+    <SiteLayout>
       {/* Hero — viewport-filling, stats pinned at bottom */}
       <section
         className="relative overflow-hidden flex flex-col"

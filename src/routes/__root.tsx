@@ -1,12 +1,14 @@
 import {
   createRootRoute,
   HeadContent,
+  Link,
   Outlet,
   Scripts,
 } from '@tanstack/react-router'
 import { Analytics } from '@vercel/analytics/react'
 import type { ReactNode } from 'react'
 import appCss from '../globals.css?url'
+import { SITE_URL, SITE_DESCRIPTION, SITE_AUTHOR } from '@/config/site'
 
 function NotFound() {
   return (
@@ -15,9 +17,9 @@ function NotFound() {
         <p className="text-6xl font-extrabold text-blue-500 mb-4">404</p>
         <h1 className="text-2xl font-bold text-slate-100 mb-2">Page not found</h1>
         <p className="text-slate-400 mb-6">The page you are looking for does not exist.</p>
-        <a href="/" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-colors">
+        <Link to="/" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-colors">
           Go home
-        </a>
+        </Link>
       </div>
     </div>
   )
@@ -34,6 +36,15 @@ export const Route = createRootRoute({
           'DevOps & Platform Engineer sharing practical lessons on cloud, automation, Kubernetes, and modern infrastructure.',
       },
       { title: 'Mike Etherington — DevOps & Platform Engineer' },
+      { property: 'og:site_name', content: 'MikeTech93' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: 'Mike Etherington — DevOps & Platform Engineer' },
+      { property: 'og:description', content: SITE_DESCRIPTION },
+      { property: 'og:url', content: SITE_URL },
+      { name: 'author', content: SITE_AUTHOR },
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:title', content: 'Mike Etherington — DevOps & Platform Engineer' },
+      { name: 'twitter:description', content: SITE_DESCRIPTION },
     ],
     links: [
       { rel: 'icon', href: '/favicon.png', type: 'image/png' },

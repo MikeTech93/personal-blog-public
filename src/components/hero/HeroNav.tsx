@@ -1,6 +1,5 @@
-'use client'
-
 import { useState } from 'react'
+import { Link, useRouterState } from '@tanstack/react-router'
 import { Search, Sun, Moon, Menu, X, ExternalLink } from 'lucide-react'
 import { LinkedInIcon } from '@/components/icons/BrandIcons'
 import type { NavLink } from '@/types/hero'
@@ -11,7 +10,6 @@ interface HeroNavProps {
   siteSubtitle: string
   navLinks: NavLink[]
   linkedInUrl: string
-  currentPath?: string
 }
 
 export function HeroNav({
@@ -20,18 +18,19 @@ export function HeroNav({
   siteSubtitle,
   navLinks,
   linkedInUrl,
-  currentPath = '/',
 }: HeroNavProps) {
   const [isDark, setIsDark] = useState(true)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { location } = useRouterState()
+  const currentPath = location.pathname
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-800/80 bg-[#030712]/90 backdrop-blur-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center h-16 gap-4" aria-label="Primary navigation">
           {/* Logo */}
-          <a
-            href="/"
+          <Link
+            to="/"
             className="flex items-center gap-3 flex-shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg p-1 -m-1"
             aria-label={`${siteName} — home`}
           >
@@ -42,7 +41,7 @@ export function HeroNav({
               <div className="text-sm font-bold text-slate-100 leading-none">{siteName}</div>
               <div className="text-[11px] text-slate-500 mt-0.5">{siteSubtitle}</div>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop nav links */}
           <ul className="hidden lg:flex items-center gap-1 mx-auto" role="list">
@@ -50,8 +49,8 @@ export function HeroNav({
               const isActive = currentPath === link.href
               return (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className={`relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
                       isActive
                         ? 'text-slate-100'
@@ -66,7 +65,7 @@ export function HeroNav({
                         aria-hidden="true"
                       />
                     )}
-                  </a>
+                  </Link>
                 </li>
               )
             })}
@@ -138,8 +137,8 @@ export function HeroNav({
                 const isActive = currentPath === link.href
                 return (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       onClick={() => setMobileOpen(false)}
                       className={`block px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                         isActive
@@ -149,7 +148,7 @@ export function HeroNav({
                       aria-current={isActive ? 'page' : undefined}
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 )
               })}
