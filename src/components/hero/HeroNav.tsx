@@ -35,7 +35,7 @@ export function HeroNav({
             aria-label={`${siteName} — home`}
           >
             <div className="w-9 h-9 rounded-lg overflow-hidden flex-shrink-0">
-              <img src="/images/logos/square-logo.png" alt="MikeTech93 logo" className="w-full h-full object-cover" />
+              <img src="/favicon.png" alt="MikeTech93 logo" className="w-full h-full object-cover" />
             </div>
             <div className="hidden sm:block leading-tight">
               <div className="text-sm font-bold text-slate-100 leading-none">{siteName}</div>

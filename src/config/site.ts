@@ -5,7 +5,7 @@ export const SITE_TITLE = 'Mike Etherington — DevOps & Platform Engineer'
 export const SITE_DESCRIPTION =
   'DevOps & Platform Engineer sharing practical lessons on cloud, automation, Kubernetes, and modern infrastructure.'
 export const SITE_AUTHOR = 'Mike Etherington'
-export const SITE_OG_IMAGE = `${SITE_URL}/images/logos/square-logo.png`
+export const SITE_OG_IMAGE = `${SITE_URL}/favicon.png`
 
 export function buildPageMeta({
   title,

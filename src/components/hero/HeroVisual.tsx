@@ -83,7 +83,7 @@ export function HeroVisual({ terminalLines, avatarSrc, name }: HeroVisualProps) 
         ) : (
           <div className="w-full h-full bg-black flex items-center justify-center p-6">
             <img
-              src="/images/logos/square-logo.png"
+              src="/favicon.png"
               alt="MikeTech93 logo"
               className="w-full h-full object-contain"
               loading="lazy"
