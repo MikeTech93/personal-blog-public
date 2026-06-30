@@ -24,7 +24,7 @@ export function BlogPage() {
     <SiteLayout>
       <BlogHero postCount={BLOG_POSTS.length} topicCount={ALL_TAGS.length - 1} />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 space-y-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-10 space-y-8">
         {featured && (
           <div>
             <FeaturedPost post={featured} />

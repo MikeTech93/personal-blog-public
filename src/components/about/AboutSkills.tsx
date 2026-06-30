@@ -3,7 +3,7 @@ import { SKILLS } from '@/data/about'
 
 export function AboutSkills() {
   return (
-    <section className="py-16 border-b border-slate-800">
+    <section className="py-10 border-b border-slate-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader label="Tech Stack" />
         <div className="flex flex-wrap gap-3">

@@ -13,8 +13,7 @@ export function HeroSection({ data }: HeroSectionProps) {
     <SiteLayout>
       {/* Hero — viewport-filling, stats pinned at bottom */}
       <section
-        className="relative overflow-hidden flex flex-col"
-        style={{ minHeight: 'calc(100svh - 65px)' }}
+        className="relative overflow-hidden"
         aria-label="Hero section"
       >
         {/* Background grid */}
@@ -33,8 +32,8 @@ export function HeroSection({ data }: HeroSectionProps) {
         />
 
         {/* Main content — grows to fill available space */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8 relative flex-1 flex items-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center w-full">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-6 lg:pt-6 lg:pb-8 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start w-full">
             <HeroContent
               badge={data.badge}
               headline={data.headline}

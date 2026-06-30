@@ -7,7 +7,7 @@ interface BlogHeroProps {
 
 export function BlogHero({ postCount, topicCount }: BlogHeroProps) {
   return (
-    <section className="relative py-14 lg:py-18 border-b border-slate-800 overflow-hidden">
+    <section className="relative pt-4 pb-6 lg:pt-6 lg:pb-8 border-b border-slate-800 overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
